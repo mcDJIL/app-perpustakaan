@@ -16,3 +16,7 @@ Aplikasi Perpustakaan adalah aplikasi web untuk membantu pengelolaan data perpus
 `View adalah tampilan yang dilihat pengguna dan bertugas menyajikan data dengan jelas.` 
 ### Controller
 `Controller menjadi penghubung yang menerima permintaan, memprosesnya melalui Model, lalu menentukan View atau respons yang dikembalikan.`
+
+## Dokumentasi
+### Screenshot `php artisan route:list`
+![Screenshot php artisan route:list](/public/assets/images/route.png)
