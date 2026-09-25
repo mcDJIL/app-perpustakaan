@@ -20,3 +20,7 @@ Aplikasi Perpustakaan adalah aplikasi web untuk membantu pengelolaan data perpus
 ## Dokumentasi
 ### Screenshot `php artisan route:list`
 ![Screenshot php artisan route:list](/public/assets/images/route.png)
+### Screenshot `form /members/create setelah submit kosong`
+![Screenshot form /members/create setelah submit kosong](/public/assets/images/members_field_empty.png)
+### Screenshot `form /members/create setelah submit valid`
+![Screenshot form /members/create setelah submit valid](/public/assets/images/members_success_message.png)
