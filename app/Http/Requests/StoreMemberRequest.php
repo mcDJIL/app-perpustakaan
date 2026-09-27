@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreMemberRequest extends FormRequest
 {
@@ -22,13 +23,15 @@ class StoreMemberRequest extends FormRequest
      */
     public function rules(): array
     {
+        $memberId = $this->route('member');
+
         return [
-            'nama' => 'required|string',
-            'nim' => 'required|integer',
-            'email' => 'required|email',
-            'nomor_telepon' => 'required|string|max:16',
+            'nama' => 'required|string|max:100',
+            'nim' => ['required', 'string', Rule::unique('members', 'nim')->ignore($memberId)],
+            'email' => ['required', 'email', 'max:100', Rule::unique('members', 'email')->ignore($memberId)],
+            'nomor_telepon' => 'required|string|max:15',
             'alamat' => 'required|string',
-            'status' => 'required|in:0,1'
+            'status' => 'required|in:aktif,nonaktif',
         ];
     }
 
@@ -42,8 +45,7 @@ class StoreMemberRequest extends FormRequest
             'email.email' => 'Email tidak valid!',
             'email.unique' => 'Email sudah terdaftar!',
             'nomor_telepon.required' => 'Nomor telepon wajib diisi!',
-            'nomor_telepon.numeric' => 'Nomor telepon harus berupa angka!',
-            'nomor_telepon.max' => 'Nomor telepon maksimal 16 digit!',
+            'nomor_telepon.max' => 'Nomor telepon maksimal 15 karakter!',
             'alamat.required' => 'Alamat wajib diisi!',
             'status.required' => 'Status wajib diisi!',
             'status.in' => 'Status harus berupa nonaktif atau aktif!',
