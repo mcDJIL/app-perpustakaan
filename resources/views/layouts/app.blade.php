@@ -76,6 +76,21 @@
             color: #065f46;
         }
 
+        .alert-warning {
+            margin-bottom: 16px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            background: #FFE3BF;
+            color: #FF950D;
+        }
+        .alert-danger {
+            margin-bottom: 16px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            background: #FFB5B5;
+            color: #FE0000;
+        }
+
         .btn {
             display: inline-block;
             padding: 6px 14px;
