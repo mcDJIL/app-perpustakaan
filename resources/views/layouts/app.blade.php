@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Perpustakaan Digital Kampus')</title>
@@ -14,7 +15,7 @@
             font-family: sans-serif;
         }
 
-        body > nav {
+        body>nav {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -23,13 +24,13 @@
             background: #1e3a8a;
         }
 
-        body > nav .brand {
+        body>nav .brand {
             color: #fff;
             font-size: 18px;
             font-weight: bold;
         }
 
-        body > nav ul {
+        body>nav ul {
             display: flex;
             gap: 20px;
             margin: 0;
@@ -37,16 +38,39 @@
             list-style: none;
         }
 
-        body > nav ul li a {
+        body>nav ul li a {
             padding: 6px 4px;
             color: #cbd5e1;
             text-decoration: none;
         }
 
-        body > nav ul li a.active {
+        body>nav ul li a.active {
             border-bottom: 2px solid #fff;
             color: #fff;
             font-weight: bold;
+        }
+
+        nav .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        nav .btn-logout {
+            background: none;
+            border: 1px solid #cbd5e1;
+            color: #cbd5e1;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        nav .btn-logout:hover {
+            background: #1e40af;
+            color: #fff;
         }
 
         main {
@@ -83,6 +107,7 @@
             background: #FFE3BF;
             color: #FF950D;
         }
+
         .alert-danger {
             margin-bottom: 16px;
             padding: 10px 14px;
@@ -149,14 +174,14 @@
             font-size: 14px;
         }
 
-        .pagination-wrap nav > div:first-child {
+        .pagination-wrap nav>div:first-child {
             display: flex;
             width: 100%;
             justify-content: space-between;
             gap: 10px;
         }
 
-        .pagination-wrap nav > div:last-child {
+        .pagination-wrap nav>div:last-child {
             display: none;
             width: 100%;
             align-items: center;
@@ -164,10 +189,10 @@
             gap: 16px;
         }
 
-        .pagination-wrap nav > div:first-child > a,
-        .pagination-wrap nav > div:first-child > span,
-        .pagination-wrap nav > div:last-child > div:last-child > span > a,
-        .pagination-wrap nav > div:last-child > div:last-child > span > span {
+        .pagination-wrap nav>div:first-child>a,
+        .pagination-wrap nav>div:first-child>span,
+        .pagination-wrap nav>div:last-child>div:last-child>span>a,
+        .pagination-wrap nav>div:last-child>div:last-child>span>span {
             display: inline-flex;
             min-width: 44px;
             min-height: 44px;
@@ -182,13 +207,13 @@
             text-decoration: none;
         }
 
-        .pagination-wrap nav > div:first-child > span,
-        .pagination-wrap nav [aria-disabled="true"] > span {
+        .pagination-wrap nav>div:first-child>span,
+        .pagination-wrap nav [aria-disabled="true"]>span {
             background: #f3f4f6;
             color: #6b7280;
         }
 
-        .pagination-wrap nav [aria-current="page"] > span {
+        .pagination-wrap nav [aria-current="page"]>span {
             border-color: #1e3a8a;
             background: #1e3a8a;
             color: #fff;
@@ -205,22 +230,22 @@
         }
 
         @media (min-width: 640px) {
-            .pagination-wrap nav > div:first-child {
+            .pagination-wrap nav>div:first-child {
                 display: none;
             }
 
-            .pagination-wrap nav > div:last-child {
+            .pagination-wrap nav>div:last-child {
                 display: flex;
             }
         }
 
         @media (max-width: 600px) {
-            body > nav {
+            body>nav {
                 gap: 12px;
                 padding: 14px 20px;
             }
 
-            body > nav ul {
+            body>nav ul {
                 flex-wrap: wrap;
                 gap: 12px;
             }
@@ -231,6 +256,7 @@
         }
     </style>
 </head>
+
 <body>
     @include('partials.navbar')
 
@@ -244,4 +270,5 @@
         &copy; {{ date('Y') }} Sistem Perpustakaan Digital Kampus
     </footer>
 </body>
+
 </html>
