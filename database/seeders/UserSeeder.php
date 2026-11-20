@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -14,36 +13,19 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
-            [
-                'name' => 'Administrator Perpustakaan',
-                'email' => 'admin@pens.ac.id',
-                'email_verified_at' => Carbon::now(),
-                'password' => Hash::make('password'),
-                'role' => 'admin',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'Petugas Satu',
-                'email' => 'petugas1@pens.ac.id',
-                'email_verified_at' => Carbon::now(),
-                'password' => Hash::make('password'),
-                'role' => 'petugas',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'Petugas Dua',
-                'email' => 'petugas2@pens.ac.id',
-                'email_verified_at' => null, // Contoh user yang belum verifikasi email
-                'password' => Hash::make('password'),
-                'role' => 'petugas',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        ];
+        User::updateOrCreate(
+            ['email' => 'admin@pens.ac.id'],
+            ['name' => 'Bambang Sutrisno', 'password' => Hash::make('password'), 'role' => 'admin']
+        );
 
-        DB::table('users')->insert($users);
+        User::updateOrCreate(
+            ['email' => 'petugas1@pens.ac.id'],
+            ['name' => 'Siti Rahmawati', 'password' => Hash::make('password'), 'role' => 'petugas']
+        );
+
+        User::updateOrCreate(
+            ['email' => 'petugas2@pens.ac.id'],
+            ['name' => 'Ahmad Fauzi', 'password' => Hash::make('password'), 'role' => 'petugas']
+        );
     }
 }
